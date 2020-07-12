@@ -140,6 +140,8 @@ static ssize_t fan_store(struct device *dev, struct device_attribute *attr,
 		max31760_i2c_reg_set(pdata, 0x50, val1);
 		return count;
 	}
+	pr_debug("%s, count:%lu  val:%lx, buf:%s\n",
+				 __func__, count, val, buf);
 
 	if (val == 0xff) {
 		turn_gpio(pdata, false);
