@@ -883,6 +883,7 @@ static inline unsigned int VENUS_UV_STRIDE(unsigned int color_fmt,
 	switch (color_fmt) {
 	case COLOR_FMT_NV21:
 	case COLOR_FMT_NV12:
+	case COLOR_FMT_NV21:
 		alignment = NV12_STRIDE_ALIGNMENT;
 		stride = MSM_MEDIA_ALIGN(width, alignment);
 		break;
@@ -970,6 +971,7 @@ static inline unsigned int VENUS_UV_SCANLINES(unsigned int color_fmt,
 	switch (color_fmt) {
 	case COLOR_FMT_NV21:
 	case COLOR_FMT_NV12:
+	case COLOR_FMT_NV21:
 		alignment = NV12_SCANLINE_ALIGNMENT/2;
 		break;
 	case COLOR_FMT_NV12_512:
