@@ -640,7 +640,7 @@ static inline int sde_hw_ctl_trigger_flush_v1(struct sde_hw_ctl *ctx)
 	return 0;
 }
 
-static inline u32 sde_hw_ctl_get_intf_v1(struct sde_hw_ctl *ctx)
+static inline u32 sde_hw_ctl_get_intf_v1(struct sde_hw_ctl *ctx, u32 hwversion)
 {
 	struct sde_hw_blk_reg_map *c;
 	u32 intf_active;
@@ -656,7 +656,7 @@ static inline u32 sde_hw_ctl_get_intf_v1(struct sde_hw_ctl *ctx)
 	return intf_active;
 }
 
-static inline u32 sde_hw_ctl_get_intf(struct sde_hw_ctl *ctx)
+static inline u32 sde_hw_ctl_get_intf(struct sde_hw_ctl *ctx, u32 hwversion)
 {
 	struct sde_hw_blk_reg_map *c;
 	u32 ctl_top;
