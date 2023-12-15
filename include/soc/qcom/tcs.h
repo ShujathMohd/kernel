@@ -19,14 +19,17 @@
 struct tcs_cmd {
 	u32 addr;		/* slv_id:18:16 | offset:0:15 */
 	u32 data;		/* data for resource (or read response) */
-	bool complete;		/* wait for completion before sending next */
+	u32 wait;		/* wait for completion before sending next */
+        bool complete;          /* wait for completion before sending next */
+
 };
 
 enum rpmh_state {
 	RPMH_SLEEP_STATE,	/* Sleep */
 	RPMH_WAKE_ONLY_STATE,	/* Wake only */
 	RPMH_ACTIVE_ONLY_STATE,	/* Active only (= AMC) */
-	RPMH_AWAKE_STATE,	/* Use Wake TCS for Wake & Active (AMC = 0) */
+        RPMH_AWAKE_STATE,       /* Use Wake TCS for Wake & Active (AMC = 0) */
+
 };
 
 struct tcs_mbox_msg {
@@ -37,6 +40,13 @@ struct tcs_mbox_msg {
 	bool invalidate;	/* invalidate sleep/wake commands */
 	u32 num_payload;	/* Limited to MAX_RPMH_PAYLOAD in one msg */
 	struct tcs_cmd *payload;/* array of tcs_cmds */
+};
+
+struct tcs_request {
+	enum rpmh_state state;
+	u32 wait_for_compl;
+	u32 num_cmds;
+	struct tcs_cmd *cmds;
 };
 
 #endif /* __SOC_QCOM_TCS_H__ */
