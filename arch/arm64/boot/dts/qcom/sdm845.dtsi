@@ -2290,6 +2290,10 @@
 			compatible = "qcom,msm-bus-rsc";
 			qcom,msm-bus-id = <MSM_BUS_RSC_APPS>;
 		};
+
+		system_pm {
+			compatible = "qcom,system-pm";
+		};
 	};
 
 	disp_rsc: rsc@af20000 {
@@ -2317,11 +2321,6 @@
 		interrupt-parent = <&sleepstate_smp2p_in>;
 		interrupts = <0 0>;
 		interrupt-names = "smp2p-sleepstate-in";
-	};
-
-	system_pm {
-		compatible = "qcom,system-pm-sdm845";
-		mboxes = <&apps_rsc 0>;
 	};
 
 	qcom,glink {
